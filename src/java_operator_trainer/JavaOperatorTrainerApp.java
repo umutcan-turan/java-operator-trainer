@@ -27,30 +27,30 @@ class JavaOperatorTrainerApp {
 		Operator [] arr = new Operator[24];
 		
 		arr[0] = new Operator("Aritmetik (Toplama)", "+", 4, 2, false, true, false, true);
-		arr[1] = new Operator("Aritmetik (Cikarma)", "-", 4, 2, false, true, false, true);
-		arr[2] = new Operator("Aritmetik (Carpma)", "*", 3, 2, false, true, false, true);
-		arr[3] = new Operator("Aritmetik (Bolme)", "/", 3, 2, false, true, false, true);
+		arr[1] = new Operator("Aritmetik (Çıkarma)", "-", 4, 2, false, true, false, true);
+		arr[2] = new Operator("Aritmetik (Çarpma)", "*", 3, 2, false, true, false, true);
+		arr[3] = new Operator("Aritmetik (Bölme)", "/", 3, 2, false, true, false, true);
 		arr[4] = new Operator("Aritmetik (Mod)", "%", 3, 2, false, true, false, true);
-		arr[5] = new Operator("Isaret (Arti)", "+", 2, 1, true, false, false, false);
-		arr[6] = new Operator("Isaret (Eksi)", "-", 2, 1, true, false, false, false);
-		arr[7] = new Operator("Artirma", "++", 2, 1, true, false, true, false);
+		arr[5] = new Operator("İşaret (Artı)", "+", 2, 1, true, false, false, false);
+		arr[6] = new Operator("İşaret (Eksi)", "-", 2, 1, true, false, false, false);
+		arr[7] = new Operator("Artırma", "++", 2, 1, true, false, true, false);
 		arr[8] = new Operator("Azaltma", "--", 2, 1, true, false, true, false);
-		arr[9] = new Operator("Karsilastirma (Kucuktur)", "<", 6, 2, false, true, false, true);
-		arr[10] = new Operator("Karsilastirma (Buyuktur)", ">", 6, 2, false, true, false, true);
-		arr[11] = new Operator("Karsilastirma (Kucuk esittir)", "<=", 6, 2, false, true, false, true);
-		arr[12] = new Operator("Karsilastirma (Buyuk esittir)", ">=", 6, 2, false, true, false, true);
-		arr[13] = new Operator("Karsilastirma (Esittir)", "==", 7, 2, false, true, false, true);
-		arr[14] = new Operator("Karsilastirma (Esit degildir)", "!=", 7, 2, false, true, false, true);
-		arr[15] = new Operator("Mantiksal (Ve)", "&&", 11, 2, false, true, false, true);
-		arr[16] = new Operator("Mantiksal (Veya)", "||", 12, 2, false, true, false, true);
-		arr[17] = new Operator("Mantiksal (Degil)", "!", 2, 1, true, false, false, false);
+		arr[9] = new Operator("Karşılaştırma (Küçüktür)", "<", 6, 2, false, true, false, true);
+		arr[10] = new Operator("Karşılaştırma (Büyüktür)", ">", 6, 2, false, true, false, true);
+		arr[11] = new Operator("Karşılaştırma (Küçük eşittir)", "<=", 6, 2, false, true, false, true);
+		arr[12] = new Operator("Karşılaştırma (Büyük eşittir)", ">=", 6, 2, false, true, false, true);
+		arr[13] = new Operator("Karşılaştırma (Eşittir)", "==", 7, 2, false, true, false, true);
+		arr[14] = new Operator("Karşılaştırma (Eşit değildir)", "!=", 7, 2, false, true, false, true);
+		arr[15] = new Operator("Mantıksal (Ve)", "&&", 11, 2, false, true, false, true);
+		arr[16] = new Operator("Mantıksal (Veya)", "||", 12, 2, false, true, false, true);
+		arr[17] = new Operator("Mantıksal (Degil)", "!", 2, 1, true, false, false, false);
 		arr[18] = new Operator("Bitsel (Ve)", "&", 8, 1, false, true, false, true);
 		arr[19] = new Operator("Bitsel (Veya)", "|", 10, 1, false, true, false, true);
 		arr[20] = new Operator("Atama", "=", 14, 1, false, true, false, false);
 		arr[20] = new Operator("Atama (Toplayarak atama)", "+=", 14, 1, false, true, false, false);
-		arr[21] = new Operator("Atama (Cikararak atama)", "-=", 14, 1, false, true, false, false);
-		arr[22] = new Operator("Atama (Carparak atama)", "*=", 14, 1, false, true, false, false);
-		arr[23] = new Operator("Atama (Bolerek atama)", "/=", 14, 1, false, true, false, false);
+		arr[21] = new Operator("Atama (Çıkararak atama)", "-=", 14, 1, false, true, false, false);
+		arr[22] = new Operator("Atama (Çarparak atama)", "*=", 14, 1, false, true, false, false);
+		arr[23] = new Operator("Atama (Bölerek atama)", "/=", 14, 1, false, true, false, false);
 
 		return arr;
 	}
@@ -59,7 +59,7 @@ class JavaOperatorTrainerApp {
 class PrecedenceChecker {
 	public static void loop(Operator [] operators, Random rand, java.util.Scanner kb)
 	{
-		System.out.println("Cikis icin 0 giriniz");
+		System.out.println("Çıkış için 0 giriniz");
 		
 		while (true) {
 			int idx1 = rand.nextInt(operators.length);
@@ -92,10 +92,10 @@ class PrecedenceChecker {
 	
 	public static void printQuestion(Operator op1, Operator op2)
 	{
-		System.out.println("Hangi islem oncelikli yapilir?");
+		System.out.println("Hangi işlem öncelikli yapılırr?");
 		System.out.printf("1) %s \"%s\"%n", op1.name, op1.atom);
 		System.out.printf("2) %s \"%s\"%n", op2.name, op2.atom);
-		System.out.printf("3) Esit oncelik seviyesine sahiptirler%n");
+		System.out.printf("3) Eşit öncelik seviyesine sahiplerdir.%n");
 
 	}
 	
@@ -111,17 +111,17 @@ class PrecedenceChecker {
 	public static void printCorrectAnswer(Operator op1, Operator op2)
 	{
 		if (op1.level < op2.level)
-			System.out.printf("Dogru cevap: \"%s\"%n", op1.name);
+			System.out.printf("Doğru cevap: \"%s\"%n", op1.name);
 		else if (op1.level > op2.level)
-			System.out.printf("Dogru cevap: \"%s\"%n", op2.name);
+			System.out.printf("Doğru cevap: \"%s\"%n", op2.name);
 		else
-			System.out.println("Dogru cevap: Esit oncelik seviyesine sahiptirler");
+			System.out.println("Doğru cevap: Eşit öncelik seviyesine sahiplerdir.");
 	}
 	
 	public static void printResult(boolean isCorrect)
 	{
 		if (isCorrect)
-			System.out.println("Dogru cevap! Bravo!");
+			System.out.println("Doğru cevap! Bravo!");
 		else
 			System.out.println("Bir dahaki sefere..!");
 	}
@@ -151,14 +151,14 @@ class Operator {
 	
 	public void debugInfo()
 	{
-		System.out.println("Isim: " + this.name);
+		System.out.println("İsim: " + this.name);
 		System.out.println("Atom: " + this.atom);
 		System.out.println("Seviye: " + this.level);
-		System.out.println("Operand sayisi: " + this.operandCount);
-		System.out.println("Onek: " + this.isPrefix);
+		System.out.println("Operand sayısı: " + this.operandCount);
+		System.out.println("Önek: " + this.isPrefix);
 		System.out.println("Araek: " + this.isInfix);
 		System.out.println("Sonek: " + this.isPostfix);
-		System.out.println("Soldan saga: " + this.isLeftToRight);
+		System.out.println("Soldan sağa: " + this.isLeftToRight);
 		System.out.println();
 
 	}

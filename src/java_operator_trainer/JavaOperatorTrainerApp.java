@@ -36,7 +36,7 @@ class JavaOperatorTrainerApp {
 			if ((answer = kb.nextInt()) == 0)
 				break;
 			isCorrect = checkAnswer(questionType, op1, op2, answer);
-			displayResult(questionType, isCorrect);
+			Util.printResult(isCorrect);
 			if (!isCorrect)
 				displayCorrectAnswer(questionType, op1, op2);
 			System.out.println();
@@ -49,7 +49,7 @@ class JavaOperatorTrainerApp {
 		if (type == 0)
 			PrecedenceChecker.printQuestion(op1, op2);
 		else if (type == 1)
-			;
+			OperandCountChecker.printQuestion(op1);
 	}
 
 	public static boolean checkAnswer(int type, Operator op1, Operator op2, int answer)
@@ -57,22 +57,16 @@ class JavaOperatorTrainerApp {
 		if (type == 0)
 			return PrecedenceChecker.isCorrectAnswer(op1, op2, answer);
 		if (type == 1)
-			return false;
+			return OperandCountChecker.isCorrectAnswer(op1, answer);
 		return false;
-	}
-	
-	public static void displayResult(int type, boolean isCorrect)
-	{
-		if (type == 0)
-			PrecedenceChecker.printResult(isCorrect);
-		else if (type == 1)
-			;
 	}
 	
 	public static void displayCorrectAnswer(int type, Operator op1, Operator op2)
 	{
 		if (type == 0)
 			PrecedenceChecker.printCorrectAnswer(op1, op2);
+		else if (type == 1)
+			OperandCountChecker.printCorrectAnswer(op1);
 	}
 
 	public static List<Operator> initializeOperatorsArray()
@@ -118,11 +112,11 @@ class JavaOperatorTrainerApp {
 		arr.add(new Operator("Eşittir",          "==",    7,  2,  false,  true,   false,  true));
 		arr.add(new Operator("Eşit değildir",    "!=",    7,  2,  false,  true,   false,  true));
 		
-		arr.add(new Operator("Bitsel ve",         "&",    8,  1,  false,  true,   false,  true));
+		arr.add(new Operator("Bitsel ve",         "&",    8,  2,  false,  true,   false,  true));
 		
 		//arr.add(new Operator("",                "^",    9,  x,  x,      x,      x,      x));
 		
-		arr.add(new Operator("Bitsel veya",       "|",   10,  1,  false,  true,   false,  true));
+		arr.add(new Operator("Bitsel veya",       "|",   10,  2,  false,  true,   false,  true));
 		
 		arr.add(new Operator("Mantıksal ve",     "&&",   11,  2,  false,  true,   false,  true));
 		
@@ -174,13 +168,25 @@ class PrecedenceChecker {
 		else
 			System.out.println("Doğru cevap: Eşit öncelik seviyesine sahiplerdir.");
 	}
-	
-	public static void printResult(boolean isCorrect)
+}
+
+class OperandCountChecker {
+	public static void printQuestion(Operator op1)
 	{
-		if (isCorrect)
-			System.out.println("Doğru cevap! Bravo!");
-		else
-			System.out.println("Bir dahaki sefere..!");
+		System.out.printf("%s \"%s\" operatörünün operand sayısı kaçtır?%n", op1.name, op1.atom);
+		System.out.println("1) 1");
+		System.out.println("2) 2");
+		System.out.println("3) 3");
+	}
+	
+	public static boolean isCorrectAnswer(Operator op1, int answer)
+	{
+		return op1.operandCount == answer;
+	}
+	
+	public static void printCorrectAnswer(Operator op1)
+	{
+		System.out.printf("Doğru cevap: %d%n", op1.operandCount);
 	}
 }
 
@@ -230,5 +236,13 @@ class Util {
 			result = rand.nextInt(range);
 		} while (number == result);
 		return result;
+	}
+	
+	public static void printResult(boolean isCorrect)
+	{
+		if (isCorrect)
+			System.out.println("Doğru cevap! Bravo!");
+		else
+			System.out.println("Bir dahaki sefere..!");
 	}
 }

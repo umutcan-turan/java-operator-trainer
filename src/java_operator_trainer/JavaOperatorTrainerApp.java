@@ -20,7 +20,6 @@ class JavaOperatorTrainerApp {
 	//		Operator op = operators.get(i);
 	//		op.debugInfo();
 	//	}
-		PrecedenceChecker.loop(operators, rand, kb);
 		
 		System.out.println("Çıkış için 0 giriniz");
 		while (true) {
@@ -147,31 +146,7 @@ class JavaOperatorTrainerApp {
 	}
 }
 
-class PrecedenceChecker {
-	public static void loop(List<Operator> operators, Random rand, java.util.Scanner kb)
-	{
-		System.out.println("Çıkış için 0 giriniz");
-		
-		while (true) {
-			int idx1 = rand.nextInt(operators.size());
-			int idx2 = Util.generateDifferentInt(idx1, rand, operators.size());
-			Operator op1 = operators.get(idx1);
-			Operator op2 = operators.get(idx2);
-			int answer;
-			boolean isCorrect;
-			
-			printQuestion(op1, op2);
-			// TODO: Exception handling
-			if ((answer = kb.nextInt()) == 0)
-				break;
-			isCorrect = isCorrectAnswer(op1, op2, answer);
-			printResult(isCorrect);
-			if (!isCorrect)
-				printCorrectAnswer(op1, op2);
-			System.out.println();
-		};
-	}
-	
+class PrecedenceChecker {	
 	public static void printQuestion(Operator op1, Operator op2)
 	{
 		System.out.println("Hangi işlem öncelikli yapılır?");

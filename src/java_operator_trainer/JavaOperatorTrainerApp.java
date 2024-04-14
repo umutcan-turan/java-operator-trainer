@@ -102,7 +102,7 @@ class PrecedenceChecker {
 		
 		while (true) {
 			int idx1 = rand.nextInt(operators.size());
-			int idx2 = generateIdx2(idx1, operators.size(), rand);
+			int idx2 = Util.generateDifferentInt(idx1, rand, operators.size());
 			Operator op1 = operators.get(idx1);
 			Operator op2 = operators.get(idx2);
 			int answer;
@@ -118,15 +118,6 @@ class PrecedenceChecker {
 				printCorrectAnswer(op1, op2);
 			System.out.println();
 		};
-	}
-
-	public static int generateIdx2(int idx1, int range, Random rand)
-	{
-		int idx2;
-		do {
-			idx2 = rand.nextInt(range);
-		} while (idx1 == idx2);
-		return idx2;
 	}
 	
 	public static void printQuestion(Operator op1, Operator op2)
@@ -200,5 +191,17 @@ class Operator {
 		System.out.println("Soldan sağa: " + this.isLeftToRight);
 		System.out.println();
 
+	}
+}
+
+class Util {
+	public static int generateDifferentInt(int number, Random rand, int range)
+	{
+		int result;
+		
+		do {
+			result = rand.nextInt(range);
+		} while (number == result);
+		return result;
 	}
 }

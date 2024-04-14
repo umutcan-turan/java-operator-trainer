@@ -21,7 +21,59 @@ class JavaOperatorTrainerApp {
 	//		op.debugInfo();
 	//	}
 		PrecedenceChecker.loop(operators, rand, kb);
+		
+		System.out.println("Çıkış için 0 giriniz");
+		while (true) {
+			int idx1 = rand.nextInt(operators.size());
+			int idx2 = Util.generateDifferentInt(idx1, rand, operators.size());
+			Operator op1 = operators.get(idx1);
+			Operator op2 = operators.get(idx2);
+			int answer;
+			boolean isCorrect;
+			int questionType = rand.nextInt(2);
+
+			askQuestion(questionType, op1, op2);
+			// TODO: Exception handling
+			if ((answer = kb.nextInt()) == 0)
+				break;
+			isCorrect = checkAnswer(questionType, op1, op2, answer);
+			displayResult(questionType, isCorrect);
+			if (!isCorrect)
+				displayCorrectAnswer(questionType, op1, op2);
+			System.out.println();
+		}
 		kb.close();
+	}
+
+	public static void askQuestion(int type, Operator op1, Operator op2)
+	{
+		if (type == 0)
+			PrecedenceChecker.printQuestion(op1, op2);
+		else if (type == 1)
+			;
+	}
+
+	public static boolean checkAnswer(int type, Operator op1, Operator op2, int answer)
+	{
+		if (type == 0)
+			return PrecedenceChecker.isCorrectAnswer(op1, op2, answer);
+		if (type == 1)
+			return false;
+		return false;
+	}
+	
+	public static void displayResult(int type, boolean isCorrect)
+	{
+		if (type == 0)
+			PrecedenceChecker.printResult(isCorrect);
+		else if (type == 1)
+			;
+	}
+	
+	public static void displayCorrectAnswer(int type, Operator op1, Operator op2)
+	{
+		if (type == 0)
+			PrecedenceChecker.printCorrectAnswer(op1, op2);
 	}
 
 	public static List<Operator> initializeOperatorsArray()

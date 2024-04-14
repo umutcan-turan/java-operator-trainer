@@ -38,21 +38,21 @@ class JavaOperatorTrainerApp {
 		//arr.add(new Operator("",                "[]",   1,  x,  x,      x,      x,      x));
 		//arr.add(new Operator("",               "new",   1,  x,  x,      x,      x,      x));
 		
-		arr.add(new Operator("İşaret artı",        "+",    2,  1,  true,   false,  false,  false));
-		arr.add(new Operator("İşaret eksi",        "-",    2,  1,  true,   false,  false,  false));
-		arr.add(new Operator("Artırma",            "++",   2,  1,  true,   false,  true,   false));
-		arr.add(new Operator("Azaltma",            "--",   2,  1,  true,   false,  true,   false));
-		arr.add(new Operator("Mantıksal değil",    "!",    2,  1,  true,   false,  false,  false));
-		//arr.add(new Operator("",                 "~",    2,  x,  x,      x,      x,      x));
+		arr.add(new Operator("İşaret artı",        "+",   2,  1,  true,   false,  false,  false));
+		arr.add(new Operator("İşaret eksi",        "-",   2,  1,  true,   false,  false,  false));
+		arr.add(new Operator("Artırma",           "++",   2,  1,  true,   false,  true,   false));
+		arr.add(new Operator("Azaltma",           "--",   2,  1,  true,   false,  true,   false));
+		arr.add(new Operator("Mantıksal değil",    "!",   2,  1,  true,   false,  false,  false));
+		//arr.add(new Operator("",                 "~",   2,  x,  x,      x,      x,      x));
 		//arr.add(new Operator("",                "()",   2,  x,  x,      x,      x,      x));
 		
-		arr.add(new Operator("Çarpma",             "*",    3,  2,  false,  true,   false,  true));
-		arr.add(new Operator("Bölme",              "/",    3,  2,  false,  true,   false,  true));
-		arr.add(new Operator("Mod alma",           "%",    3,  2,  false,  true,   false,  true));
+		arr.add(new Operator("Çarpma",             "*",   3,  2,  false,  true,   false,  true));
+		arr.add(new Operator("Bölme",              "/",   3,  2,  false,  true,   false,  true));
+		arr.add(new Operator("Mod alma",           "%",   3,  2,  false,  true,   false,  true));
 		
 		
-		arr.add(new Operator("Toplama",            "+",    4,  2,  false,  true,   false,  true));
-		arr.add(new Operator("Çıkarma",            "-",    4,  2,  false,  true,   false,  true));
+		arr.add(new Operator("Toplama",            "+",   4,  2,  false,  true,   false,  true));
+		arr.add(new Operator("Çıkarma",            "-",   4,  2,  false,  true,   false,  true));
 		
 		//arr.add(new Operator("",                "<<",   5,  x,  x,      x,      x,      x));
 		//arr.add(new Operator("",                ">>",   5,  x,  x,      x,      x,      x));

@@ -82,9 +82,14 @@ class JavaOperatorTrainerApp {
 		arr.add(new Operator("Atama",             "=",   14,  1,  false,  true,   false,  false));
 		arr.add(new Operator("Çarparak atama",   "*=",   14,  1,  false,  true,   false,  false));
 		arr.add(new Operator("Bölerek atama",    "/=",   14,  1,  false,  true,   false,  false));
-
 		arr.add(new Operator("Toplayarak atama", "+=",   14,  1,  false,  true,   false,  false));
 		arr.add(new Operator("Çıkararak atama",  "-=",   14,  1,  false,  true,   false,  false));
+		//arr.add(new Operator("",              "<<=",   14,  x,  x,      x,      x,      x));
+		//arr.add(new Operator("",              ">>=",   14,  x,  x,      x,      x,      x));
+		//arr.add(new Operator("",               "&=",   14,  x,  x,      x,      x,      x));
+		//arr.add(new Operator("",               "^=",   14,  x,  x,      x,      x,      x));
+		//arr.add(new Operator("",               "|=",   14,  x,  x,      x,      x,      x));
+		//arr.add(new Operator("",             ">>>=",   14,  x,  x,      x,      x,      x));
 		
 		return arr;
 	}

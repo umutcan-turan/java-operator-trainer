@@ -32,7 +32,7 @@ class JavaOperatorTrainerApp {
 		
 		// TODO: Fix and uncomment the operators as they are covered in the course.
 		
-		//                       Name               Atom    Lvl Op  Prefix  Infix  Postfix LeftToRight	
+		//                     Name               Atom    Lvl Op  Prefix  Infix  Postfix LeftToRight	
 		//arr.add(new Operator("",                "()",   1,  x,  x,      x,      x,      x));
 		//arr.add(new Operator("",                ".",    1,  x,  x,      x,      x,      x));
 		//arr.add(new Operator("",                "[]",   1,  x,  x,      x,      x,      x));

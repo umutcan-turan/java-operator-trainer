@@ -16,10 +16,10 @@ class JavaOperatorTrainerApp {
 		java.util.Scanner kb = new java.util.Scanner(System.in);
 		List<Operator> operators = initializeOperatorsArray();
 		
-		
-		
-	//	for (int i = 0; i < operators.length; i++)
-	//		operators[i].debugInfo();
+	//	for (int i = 0; i < operators.size(); i++) {
+	//		Operator op = operators.get(i);
+	//		op.debugInfo();
+	//	}
 		PrecedenceChecker.loop(operators, rand, kb);
 		kb.close();
 	}
@@ -28,7 +28,7 @@ class JavaOperatorTrainerApp {
 	{
 		List<Operator> arr = new ArrayList<Operator>();
 		
-		// Based on 006-Temel-Operatorler-V2.0.pdf from csystem.org
+		// Based on 006-Temel-Operatorler-V2.0.pdf from Java-Jan-2024 course (by Oğuz Karan) @ csystem.org.
 		
 		// TODO: Fix and uncomment the operators as they are covered in the course.
 		

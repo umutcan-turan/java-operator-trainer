@@ -30,59 +30,59 @@ class JavaOperatorTrainerApp {
 		
 		// TODO: Fix and uncomment the operators as they are covered in the course.
 		
-		//							Name			Atom	Lvl	Op	Pre		In		Post	LeftToRight	
-		//arr[xx] = new Operator("",				"()",	1,	x,	x,		x,		x,		x);
-		//arr[xx] = new Operator("",				".",	1,	x,	x,		x,		x,		x);
-		//arr[xx] = new Operator("",				"[]",	1,	x,	x,		x,		x,		x);
-		//arr[xx] = new Operator("",				".",	1,	x,	x,		x,		x,		x);
+		//                       Name               Atom    Lvl Op  Prefix  Infix  Postfix LeftToRight	
+		//arr[xx] = new Operator("",                "()",   1,  x,  x,      x,      x,      x);
+		//arr[xx] = new Operator("",                ".",    1,  x,  x,      x,      x,      x);
+		//arr[xx] = new Operator("",                "[]",   1,  x,  x,      x,      x,      x);
+		//arr[xx] = new Operator("",               "new",   1,  x,  x,      x,      x,      x);
 		
-		arr[0] = new Operator("İşaret artı", 		"+",	2,	1,	true,	false,	false,	false);
-		arr[1] = new Operator("İşaret eksi",		"-",	2,	1,	true,	false,	false,	false);
-		arr[2] = new Operator("Artırma",			"++",	2,	1,	true,	false,	true,	false);
-		arr[3] = new Operator("Azaltma",			"--",	2,	1,	true,	false,	true,	false);
-		arr[4] = new Operator("Mantıksal değil",	"!",	2,	1,	true,	false,	false,	false);
-		//arr[xx] = new Operator("Bitsel değil",	"~",	2,	x,	x,		x,		x,		x);
-		//arr[xx] = new Operator("",				"()",	2,	x,	x,		x,		x,		x);
+		arr[0] = new Operator("İşaret artı",        "+",    2,  1,  true,   false,  false,  false);
+		arr[1] = new Operator("İşaret eksi",        "-",    2,  1,  true,   false,  false,  false);
+		arr[2] = new Operator("Artırma",            "++",   2,  1,  true,   false,  true,   false);
+		arr[3] = new Operator("Azaltma",            "--",   2,  1,  true,   false,  true,   false);
+		arr[4] = new Operator("Mantıksal değil",    "!",    2,  1,  true,   false,  false,  false);
+		//arr[xx] = new Operator("Bitsel değil",    "~",    2,  x,  x,      x,      x,      x);
+		//arr[xx] = new Operator("",                "()",   2,  x,  x,      x,      x,      x);
 		
-		arr[5] = new Operator("Çarpma",				"*",	3,	2,	false,	true,	false,	true);
-		arr[6] = new Operator("Bölme",				"/",	3,	2,	false,	true,	false,	true);
-		arr[7] = new Operator("Mod alma",			"%",	3,	2,	false,	true,	false,	true);
+		arr[5] = new Operator("Çarpma",             "*",    3,  2,  false,  true,   false,  true);
+		arr[6] = new Operator("Bölme",              "/",    3,  2,  false,  true,   false,  true);
+		arr[7] = new Operator("Mod alma",           "%",    3,  2,  false,  true,   false,  true);
 		
 		
-		arr[8] = new Operator("Toplama",			"+",	4,	2,	false,	true,	false,	true);
-		arr[9] = new Operator("Çıkarma",			"-",	4,	2,	false,	true,	false,	true);
+		arr[8] = new Operator("Toplama",            "+",    4,  2,  false,  true,   false,  true);
+		arr[9] = new Operator("Çıkarma",            "-",    4,  2,  false,  true,   false,  true);
 		
-		//arr[xx] = new Operator("",				"<<",	5,	x,	x,		x,		x,		x);
-		//arr[xx] = new Operator("",				">>",	5,	x,	x,		x,		x,		x);
-		//arr[xx] = new Operator("",				">>>",	5,	x,	x,		x,		x,		x);
+		//arr[xx] = new Operator("",                "<<",   5,  x,  x,      x,      x,      x);
+		//arr[xx] = new Operator("",                ">>",   5,  x,  x,      x,      x,      x);
+		//arr[xx] = new Operator("",               ">>>",   5,  x,  x,      x,      x,      x);
 		
-		arr[10] = new Operator("Büyüktür",			">",	6,	2,	false,	true,	false,	true);
-		arr[11] = new Operator("Küçüktür",			"<",	6,	2,	false,	true,	false,	true);
-		arr[12] = new Operator("Büyük eşittir",		">=",	6,	2,	false,	true,	false,	true);
-		arr[13] = new Operator("Küçük eşittir",		"<=",	6,	2,	false,	true,	false,	true);
-		//arr[xx] = new Operator("",		"instanceof",	6,	x,	x,		x,		x,		x);
+		arr[10] = new Operator("Büyüktür",          ">",    6,  2,  false,  true,   false,  true);
+		arr[11] = new Operator("Küçüktür",          "<",    6,  2,  false,  true,   false,  true);
+		arr[12] = new Operator("Büyük eşittir",    ">=",    6,  2,  false,  true,   false,  true);
+		arr[13] = new Operator("Küçük eşittir",    "<=",    6,  2,  false,  true,   false,  true);
+		//arr[xx] = new Operator("",       "instanceof",    6,  x,  x,      x,      x,      x);
 		
-		arr[14] = new Operator("Eşittir",			"==",	7,	2,	false,	true,	false,	true);
-		arr[15] = new Operator("Eşit değildir", 	"!=",	7,	2,	false,	true,	false,	true);
+		arr[14] = new Operator("Eşittir",          "==",    7,  2,  false,  true,   false,  true);
+		arr[15] = new Operator("Eşit değildir",    "!=",    7,  2,  false,  true,   false,  true);
 		
-		arr[16] = new Operator("Bitsel ve",			"&",	8,	1,	false,	true,	false,	true);
+		arr[16] = new Operator("Bitsel ve",         "&",    8,  1,  false,  true,   false,  true);
 		
-		//arr[xx] = new Operator("",				"^",	9,	x,	x,		x,		x,		x);
+		//arr[xx] = new Operator("",                "^",    9,  x,  x,      x,      x,      x);
 		
-		arr[17] = new Operator("Bitsel veya",		"|",	10,	1,	false,	true,	false,	true);
+		arr[17] = new Operator("Bitsel veya",       "|",   10,  1,  false,  true,   false,  true);
 		
-		arr[18] = new Operator("Mantıksal ve",		"&&",	11,	2,	false,	true,	false,	true);
+		arr[18] = new Operator("Mantıksal ve",     "&&",   11,  2,  false,  true,   false,  true);
 		
-		arr[19] = new Operator("Mantıksal veya",	"||",	12,	2,	false,	true,	false,	true);
+		arr[19] = new Operator("Mantıksal veya",   "||",   12,  2,  false,  true,   false,  true);
 
-		//arr[xx] = new Operator("",				":?",	13,	x,	x,		x,		x,		x);
+		//arr[xx] = new Operator("",               ":?",   13,  x,  x,      x,      x,      x);
 		
-		arr[20] = new Operator("Atama",				"=",	14,	1,	false,	true,	false,	false);
-		arr[21] = new Operator("Çarparak atama",	"*=",	14,	1,	false,	true,	false,	false);
-		arr[22] = new Operator("Bölerek atama",		"/=",	14,	1,	false,	true,	false,	false);
+		arr[20] = new Operator("Atama",             "=",   14,  1,  false,  true,   false,  false);
+		arr[21] = new Operator("Çarparak atama",   "*=",   14,  1,  false,  true,   false,  false);
+		arr[22] = new Operator("Bölerek atama",    "/=",   14,  1,  false,  true,   false,  false);
 
-		arr[23] = new Operator("Toplayarak atama",	"+=",	14,	1,	false,	true,	false,	false);
-		arr[24] = new Operator("Çıkararak atama",	"-=",	14,	1,	false,	true,	false,	false);
+		arr[23] = new Operator("Toplayarak atama", "+=",   14,  1,  false,  true,   false,  false);
+		arr[24] = new Operator("Çıkararak atama",  "-=",   14,  1,  false,  true,   false,  false);
 		
 		return arr;
 	}

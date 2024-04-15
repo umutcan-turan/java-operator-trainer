@@ -20,7 +20,7 @@ class JavaOperatorTrainerApp {
 	//		Operator op = operators.get(i);
 	//		op.debugInfo();
 	//	}
-		
+		int prevQuestionType = 0;
 		System.out.println("Çıkış için 0 giriniz");
 		while (true) {
 			int idx1 = rand.nextInt(operators.size());
@@ -29,8 +29,8 @@ class JavaOperatorTrainerApp {
 			Operator op2 = operators.get(idx2);
 			int answer;
 			boolean isCorrect;
-			int questionType = rand.nextInt(3);
-
+			int questionType = Util.generateDifferentInt(prevQuestionType, rand, 4);
+			
 			askQuestion(questionType, op1, op2);
 			// TODO: Exception handling
 			if ((answer = kb.nextInt()) == 0)
@@ -40,6 +40,7 @@ class JavaOperatorTrainerApp {
 			if (!isCorrect)
 				displayCorrectAnswer(questionType, op1, op2);
 			System.out.println();
+			prevQuestionType = questionType;
 		}
 		kb.close();
 	}
@@ -52,6 +53,8 @@ class JavaOperatorTrainerApp {
 			OperandCountChecker.printQuestion(op1);
 		else if (type == 2)
 			AssociativityChecker.printQuestion(op1);
+		else if (type == 3)
+			PlacementChecker.printQuestion(op1);
 	}
 
 	public static boolean checkAnswer(int type, Operator op1, Operator op2, int answer)
@@ -62,6 +65,8 @@ class JavaOperatorTrainerApp {
 			return OperandCountChecker.isCorrectAnswer(op1, answer);
 		if (type == 2)
 			return AssociativityChecker.isCorrectAnswer(op1, answer);
+		if (type == 3)
+			return PlacementChecker.isCorrectAnswer(op1, answer);
 		return false;
 	}
 	
@@ -73,6 +78,8 @@ class JavaOperatorTrainerApp {
 			OperandCountChecker.printCorrectAnswer(op1);
 		else if (type == 2)
 			AssociativityChecker.printCorrectAnswer(op1);
+		else if (type == 3)
+			PlacementChecker.printCorrectAnswer(op1);
 	}
 
 	public static List<Operator> initializeOperatorsArray()
@@ -214,7 +221,37 @@ class AssociativityChecker {
 		if (op1.isLeftToRight)
 			System.out.println("Doğru cevap: Soldan sağa önceliklidir.");
 		else
-			System.out.println("Doğru cevap: Sağgan sola önceliklidir.");
+			System.out.println("Doğru cevap: Sağdan sola önceliklidir.");
+	}
+}
+
+class PlacementChecker {
+	public static void printQuestion(Operator op1)
+	{
+		System.out.printf("%s \"%s\" için aşağıdakilerden hangisi söylenebilir?%n", op1.name, op1.atom);
+		System.out.println("1) Önek olarak kullanılabilir.");
+		System.out.println("2) Araek olarak kullanılabilir.");
+		System.out.println("3) Sonek olarak kullanılabilir.");
+		System.out.println("4) Hem önek hem sonek olarak kullanılabilir.");
+	}
+	
+	public static boolean isCorrectAnswer(Operator op1, int answer)
+	{
+		if (op1.isPrefix && op1.isPostfix)
+			return answer == 4;
+		return op1.isPrefix && answer == 1 || op1.isInfix && answer == 2 || op1.isPostfix && answer == 3;
+	}
+	
+	public static void printCorrectAnswer(Operator op1)
+	{
+		if (op1.isPrefix && op1.isPostfix)
+			System.out.println("Doğru cevap: Hem önek hem sonek olarak kullanılabilir.");
+		else if (op1.isPrefix)
+			System.out.println("Doğru cevap: Önek olarak kullanılabilir.");
+		else if (op1.isInfix)
+			System.out.println("Doğru cevap: Araek olarak kullanılabilir.");
+		else if (op1.isPostfix)
+			System.out.println("Doğru cevap: Sonek olarak kullanılabilir.");
 	}
 }
 

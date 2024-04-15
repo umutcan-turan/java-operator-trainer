@@ -29,7 +29,7 @@ class JavaOperatorTrainerApp {
 			Operator op2 = operators.get(idx2);
 			int answer;
 			boolean isCorrect;
-			int questionType = rand.nextInt(2);
+			int questionType = rand.nextInt(3);
 
 			askQuestion(questionType, op1, op2);
 			// TODO: Exception handling
@@ -50,6 +50,8 @@ class JavaOperatorTrainerApp {
 			PrecedenceChecker.printQuestion(op1, op2);
 		else if (type == 1)
 			OperandCountChecker.printQuestion(op1);
+		else if (type == 2)
+			AssociativityChecker.printQuestion(op1);
 	}
 
 	public static boolean checkAnswer(int type, Operator op1, Operator op2, int answer)
@@ -58,6 +60,8 @@ class JavaOperatorTrainerApp {
 			return PrecedenceChecker.isCorrectAnswer(op1, op2, answer);
 		if (type == 1)
 			return OperandCountChecker.isCorrectAnswer(op1, answer);
+		if (type == 2)
+			return AssociativityChecker.isCorrectAnswer(op1, answer);
 		return false;
 	}
 	
@@ -67,6 +71,8 @@ class JavaOperatorTrainerApp {
 			PrecedenceChecker.printCorrectAnswer(op1, op2);
 		else if (type == 1)
 			OperandCountChecker.printCorrectAnswer(op1);
+		else if (type == 2)
+			AssociativityChecker.printCorrectAnswer(op1);
 	}
 
 	public static List<Operator> initializeOperatorsArray()
@@ -187,6 +193,28 @@ class OperandCountChecker {
 	public static void printCorrectAnswer(Operator op1)
 	{
 		System.out.printf("Doğru cevap: %d%n", op1.operandCount);
+	}
+}
+
+class AssociativityChecker {
+	public static void printQuestion(Operator op1)
+	{
+		System.out.printf("%s \"%s\" için aşağıdakilerden hangisi söylenebilir?%n", op1.name, op1.atom);
+		System.out.println("1) Soldan sağa önceliklidir.");
+		System.out.println("2) Sağdan sola önceliklidir.");
+	}
+	
+	public static boolean isCorrectAnswer(Operator op1, int answer)
+	{
+		return op1.isLeftToRight && answer == 1 || !op1.isLeftToRight && answer == 2;
+	}
+	
+	public static void printCorrectAnswer(Operator op1)
+	{
+		if (op1.isLeftToRight)
+			System.out.println("Doğru cevap: Soldan sağa önceliklidir.");
+		else
+			System.out.println("Doğru cevap: Sağgan sola önceliklidir.");
 	}
 }
 

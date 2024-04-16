@@ -156,7 +156,7 @@ class JavaOperatorTrainerApp {
 class PrecedenceChecker {	
 	public static void printQuestion(Operator op1, Operator op2)
 	{
-		System.out.println("Hangi işlem daha yüksek önceliklidir?");
+		System.out.println("Hangi operatör daha yüksek önceliklidir?");
 		System.out.printf("1) %s \"%s\"%n", op1.name, op1.atom);
 		System.out.printf("2) %s \"%s\"%n", op2.name, op2.atom);
 		System.out.printf("3) Eşit öncelik seviyesine sahiplerdir.%n");

@@ -47,39 +47,54 @@ class JavaOperatorTrainerApp {
 
 	public static void askQuestion(int type, Operator op1, Operator op2)
 	{
-		if (type == 0)
+		switch (type) {
+		case 0:
 			PrecedenceChecker.printQuestion(op1, op2);
-		else if (type == 1)
+			break;
+		case 1:
 			OperandCountChecker.printQuestion(op1);
-		else if (type == 2)
+			break;
+		case 2:
 			AssociativityChecker.printQuestion(op1);
-		else if (type == 3)
+			break;
+		case 3:
 			PlacementChecker.printQuestion(op1);
+			break;
+		}
 	}
 
 	public static boolean checkAnswer(int type, Operator op1, Operator op2, int answer)
 	{
-		if (type == 0)
+		switch (type) {
+		case 0:
 			return PrecedenceChecker.isCorrectAnswer(op1, op2, answer);
-		if (type == 1)
+		case 1:
 			return OperandCountChecker.isCorrectAnswer(op1, answer);
-		if (type == 2)
+		case 2:
 			return AssociativityChecker.isCorrectAnswer(op1, answer);
-		if (type == 3)
+		case 3:
 			return PlacementChecker.isCorrectAnswer(op1, answer);
-		return false;
+		default:
+			return false;
+		}
 	}
 	
 	public static void displayCorrectAnswer(int type, Operator op1, Operator op2)
 	{
-		if (type == 0)
+		switch (type) {
+		case 0:
 			PrecedenceChecker.printCorrectAnswer(op1, op2);
-		else if (type == 1)
+			break;
+		case 1:
 			OperandCountChecker.printCorrectAnswer(op1);
-		else if (type == 2)
+			break;
+		case 2:
 			AssociativityChecker.printCorrectAnswer(op1);
-		else if (type == 3)
+			break;
+		case 3:
 			PlacementChecker.printCorrectAnswer(op1);
+			break;
+		}
 	}
 
 	public static List<Operator> initializeOperatorsArray()

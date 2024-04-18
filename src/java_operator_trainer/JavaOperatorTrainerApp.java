@@ -27,15 +27,14 @@ class JavaOperatorTrainerApp {
 			int idx2 = Util.generateDifferentInt(idx1, rand, operators.size());
 			Operator op1 = operators.get(idx1);
 			Operator op2 = operators.get(idx2);
-			int answer;
-			boolean isCorrect;
 			int questionType = Util.generateDifferentInt(prevQuestionType, rand, 4);
 			
 			askQuestion(questionType, op1, op2);
 			// TODO: Exception handling
-			if ((answer = kb.nextInt()) == 0)
+			int answer = kb.nextInt();
+			if (answer == 0)
 				break;
-			isCorrect = checkAnswer(questionType, op1, op2, answer);
+			boolean isCorrect = checkAnswer(questionType, op1, op2, answer);
 			Util.printResult(isCorrect);
 			if (!isCorrect)
 				displayCorrectAnswer(questionType, op1, op2);

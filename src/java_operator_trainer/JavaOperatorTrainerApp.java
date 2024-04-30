@@ -47,52 +47,31 @@ class JavaOperatorTrainerApp {
 	public static void askQuestion(int type, Operator op1, Operator op2)
 	{
 		switch (type) {
-		case 0:
-			PrecedenceChecker.printQuestion(op1, op2);
-			break;
-		case 1:
-			OperandCountChecker.printQuestion(op1);
-			break;
-		case 2:
-			AssociativityChecker.printQuestion(op1);
-			break;
-		case 3:
-			PlacementChecker.printQuestion(op1);
-			break;
+			case 0 -> PrecedenceChecker.printQuestion(op1, op2);
+			case 1 -> OperandCountChecker.printQuestion(op1);
+			case 2 -> AssociativityChecker.printQuestion(op1);
+			case 3 -> PlacementChecker.printQuestion(op1);
 		}
 	}
 
 	public static boolean checkAnswer(int type, Operator op1, Operator op2, int answer)
 	{
-		switch (type) {
-		case 0:
-			return PrecedenceChecker.isCorrectAnswer(op1, op2, answer);
-		case 1:
-			return OperandCountChecker.isCorrectAnswer(op1, answer);
-		case 2:
-			return AssociativityChecker.isCorrectAnswer(op1, answer);
-		case 3:
-			return PlacementChecker.isCorrectAnswer(op1, answer);
-		default:
-			return false;
-		}
+		return switch (type) {
+			case 0 -> PrecedenceChecker.isCorrectAnswer(op1, op2, answer);
+			case 1 -> OperandCountChecker.isCorrectAnswer(op1, answer);
+			case 2 -> AssociativityChecker.isCorrectAnswer(op1, answer);
+			case 3 -> PlacementChecker.isCorrectAnswer(op1, answer);
+			default -> false;
+		};
 	}
 	
 	public static void displayCorrectAnswer(int type, Operator op1, Operator op2)
 	{
 		switch (type) {
-		case 0:
-			PrecedenceChecker.printCorrectAnswer(op1, op2);
-			break;
-		case 1:
-			OperandCountChecker.printCorrectAnswer(op1);
-			break;
-		case 2:
-			AssociativityChecker.printCorrectAnswer(op1);
-			break;
-		case 3:
-			PlacementChecker.printCorrectAnswer(op1);
-			break;
+			case 0 -> PrecedenceChecker.printCorrectAnswer(op1, op2);
+			case 1 -> OperandCountChecker.printCorrectAnswer(op1);
+			case 2 -> AssociativityChecker.printCorrectAnswer(op1);
+			case 3 -> PlacementChecker.printCorrectAnswer(op1);
 		}
 	}
 

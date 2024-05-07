@@ -95,7 +95,7 @@ class JavaOperatorTrainerApp {
 		arr.add(new Operator("Azaltma",           "--",   2,  1,  true,   false,  true,   false));
 		arr.add(new Operator("Mantıksal değil",    "!",   2,  1,  true,   false,  false,  false));
 		//arr.add(new Operator("",                 "~",   2,  x,  x,      x,      x,      x));
-		//arr.add(new Operator("",                "()",   2,  x,  x,      x,      x,      x));
+		arr.add(new Operator("",                  "()",   2,  1,  true,   false,  false,  false));
 		
 		arr.add(new Operator("Çarpma",             "*",   3,  2,  false,  true,   false,  true));
 		arr.add(new Operator("Bölme",              "/",   3,  2,  false,  true,   false,  true));

@@ -27,7 +27,15 @@ class JavaOperatorTrainerApp {
 			
 			askQuestion(questionType, op1, op2);
 			// TODO: Exception handling
-			int answer = kb.nextInt();
+			String input;
+			
+			do {
+				input = kb.nextLine();
+				if (StringUtil.isValidNumber(input, 10))
+					break;
+				IOUtil.printInvalidInput();
+			} while (true);
+			int answer = Integer.parseInt(input);
 			if (answer == 0)
 				break;
 			boolean isCorrect = checkAnswer(questionType, op1, op2, answer);
@@ -205,7 +213,7 @@ class AssociativityChecker {
 	
 	public static void printCorrectAnswer(Operator op1)
 	{
-		System.out.printf("%s önceliklidir.", op1.isLeftToRight ? "Soldan sağa" : "Sağdan sola");
+		System.out.printf("%s önceliklidir.%n", op1.isLeftToRight ? "Soldan sağa" : "Sağdan sola");
 	}
 }
 
@@ -231,7 +239,7 @@ class PlacementChecker {
 		if (op1.isPrefix && op1.isPostfix)
 			System.out.println("Hem önek hem sonek olarak kullanılabilir.");
 		else
-			System.out.printf("%s olarak kullanılabilir.", op1.isPrefix ? "Önek" : (op1.isInfix ? "Araek" : "Sonek"));
+			System.out.printf("%s olarak kullanılabilir.%n", op1.isPrefix ? "Önek" : (op1.isInfix ? "Araek" : "Sonek"));
 	}
 }
 

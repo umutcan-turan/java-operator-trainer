@@ -158,21 +158,17 @@ class PrecedenceChecker {
 	
 	public static boolean isCorrectAnswer(Operator op1, Operator op2, int answer)
 	{
-		if (op1.level < op2.level)
-			return answer == 1;
-		if (op1.level > op2.level)
-			return answer == 2;
-		return answer == 3;
+		if (op1.level == op2.level)
+			return answer == 3;
+		return answer == (op1.level < op2.level ? 1 : 2);
 	}
 	
 	public static void printCorrectAnswer(Operator op1, Operator op2)
 	{
-		if (op1.level < op2.level)
-			System.out.printf("Doğru cevap: \"%s\"%n", op1.name);
-		else if (op1.level > op2.level)
-			System.out.printf("Doğru cevap: \"%s\"%n", op2.name);
-		else
+		if (op1.level == op2.level)
 			System.out.println("Doğru cevap: Eşit öncelik seviyesine sahiplerdir.");
+		else
+			System.out.printf("Doğru cevap: \"%s\"%n", op1.level < op2.level ? op1.name : op2.name);
 	}
 }
 
@@ -211,10 +207,7 @@ class AssociativityChecker {
 	
 	public static void printCorrectAnswer(Operator op1)
 	{
-		if (op1.isLeftToRight)
-			System.out.println("Doğru cevap: Soldan sağa önceliklidir.");
-		else
-			System.out.println("Doğru cevap: Sağdan sola önceliklidir.");
+		System.out.printf("Doğru cevap: %s önceliklidir.", op1.isLeftToRight ? "Soldan sağa" : "Sağdan sola");
 	}
 }
 

@@ -36,8 +36,10 @@ class JavaOperatorTrainerApp {
 				break;
 			boolean isCorrect = checkAnswer(questionType, op1, op2, answer);
 			Util.printResult(isCorrect);
-			if (!isCorrect)
+			if (!isCorrect) {
+				Util.printCorrectAnswerInfo();
 				displayCorrectAnswer(questionType, op1, op2);
+			}
 			System.out.println();
 			prevQuestionType = questionType;
 		}
@@ -166,9 +168,9 @@ class PrecedenceChecker {
 	public static void printCorrectAnswer(Operator op1, Operator op2)
 	{
 		if (op1.level == op2.level)
-			System.out.println("Doğru cevap: Eşit öncelik seviyesine sahiplerdir.");
+			System.out.println("Eşit öncelik seviyesine sahiplerdir.");
 		else
-			System.out.printf("Doğru cevap: \"%s\"%n", op1.level < op2.level ? op1.name : op2.name);
+			System.out.printf("\"%s\"%n", op1.level < op2.level ? op1.name : op2.name);
 	}
 }
 
@@ -188,7 +190,7 @@ class OperandCountChecker {
 	
 	public static void printCorrectAnswer(Operator op1)
 	{
-		System.out.printf("Doğru cevap: %d%n", op1.operandCount);
+		System.out.printf("%d%n", op1.operandCount);
 	}
 }
 
@@ -207,7 +209,7 @@ class AssociativityChecker {
 	
 	public static void printCorrectAnswer(Operator op1)
 	{
-		System.out.printf("Doğru cevap: %s önceliklidir.", op1.isLeftToRight ? "Soldan sağa" : "Sağdan sola");
+		System.out.printf("%s önceliklidir.", op1.isLeftToRight ? "Soldan sağa" : "Sağdan sola");
 	}
 }
 
@@ -231,13 +233,13 @@ class PlacementChecker {
 	public static void printCorrectAnswer(Operator op1)
 	{
 		if (op1.isPrefix && op1.isPostfix)
-			System.out.println("Doğru cevap: Hem önek hem sonek olarak kullanılabilir.");
+			System.out.println("Hem önek hem sonek olarak kullanılabilir.");
 		else if (op1.isPrefix)
-			System.out.println("Doğru cevap: Önek olarak kullanılabilir.");
+			System.out.println("Önek olarak kullanılabilir.");
 		else if (op1.isInfix)
-			System.out.println("Doğru cevap: Araek olarak kullanılabilir.");
+			System.out.println("Araek olarak kullanılabilir.");
 		else if (op1.isPostfix)
-			System.out.println("Doğru cevap: Sonek olarak kullanılabilir.");
+			System.out.println("Sonek olarak kullanılabilir.");
 	}
 }
 
@@ -295,5 +297,9 @@ class Util {
 			System.out.println("Doğru cevap! Bravo!");
 		else
 			System.out.println("Bir dahaki sefere..!");
+	}
+	public static void printCorrectAnswerInfo()
+	{
+		System.out.print("Doğru cevap: ");
 	}
 }

@@ -234,12 +234,8 @@ class PlacementChecker {
 	{
 		if (op1.isPrefix && op1.isPostfix)
 			System.out.println("Hem önek hem sonek olarak kullanılabilir.");
-		else if (op1.isPrefix)
-			System.out.println("Önek olarak kullanılabilir.");
-		else if (op1.isInfix)
-			System.out.println("Araek olarak kullanılabilir.");
-		else if (op1.isPostfix)
-			System.out.println("Sonek olarak kullanılabilir.");
+		else
+			System.out.printf("%s olarak kullanılabilir.", op1.isPrefix ? "Önek" : (op1.isInfix ? "Araek" : "Sonek"));
 	}
 }
 

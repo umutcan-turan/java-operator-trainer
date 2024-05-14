@@ -16,10 +16,6 @@ class JavaOperatorTrainerApp {
 		java.util.Scanner kb = new java.util.Scanner(System.in);
 		List<Operator> operators = initializeOperatorsArray();
 		
-	//	for (int i = 0; i < operators.size(); i++) {
-	//		Operator op = operators.get(i);
-	//		op.debugInfo();
-	//	}
 		int prevQuestionType = 0;
 		System.out.println("Çıkış için 0 giriniz");
 		while (true) {
@@ -259,20 +255,6 @@ class Operator {
 		this.isInfix = isInfix;
 		this.isPostfix = isPostfix;
 		this.isLeftToRight = isLeftToRight;
-	}
-	
-	public void debugInfo()
-	{
-		System.out.println("İsim: " + this.name);
-		System.out.println("Atom: " + this.atom);
-		System.out.println("Seviye: " + this.level);
-		System.out.println("Operand sayısı: " + this.operandCount);
-		System.out.println("Önek: " + this.isPrefix);
-		System.out.println("Araek: " + this.isInfix);
-		System.out.println("Sonek: " + this.isPostfix);
-		System.out.println("Soldan sağa: " + this.isLeftToRight);
-		System.out.println();
-
 	}
 }
 

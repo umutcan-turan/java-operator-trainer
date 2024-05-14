@@ -31,9 +31,9 @@ class JavaOperatorTrainerApp {
 			if (answer == 0)
 				break;
 			boolean isCorrect = checkAnswer(questionType, op1, op2, answer);
-			Util.printResult(isCorrect);
+			IOUtil.printResult(isCorrect);
 			if (!isCorrect) {
-				Util.printCorrectAnswerInfo();
+				IOUtil.printCorrectAnswerInfo();
 				displayCorrectAnswer(questionType, op1, op2);
 			}
 			System.out.println();
@@ -268,7 +268,9 @@ class Util {
 		} while (number == result);
 		return result;
 	}
-	
+}
+
+class IOUtil {
 	public static void printResult(boolean isCorrect)
 	{
 		System.out.printf("%s%n", isCorrect ? "Doğru cevap! Bravo!" : "Bir dahaki sefere..!");
@@ -277,5 +279,26 @@ class Util {
 	public static void printCorrectAnswerInfo()
 	{
 		System.out.print("Doğru cevap: ");
+	}
+	
+	public static void printInvalidInput()
+	{
+		System.out.println("Geçersiz sayı girdiniz!");
+	}
+}
+
+class StringUtil {
+	public static boolean isValidNumber(String str, int base)
+	{
+		int i = 0;
+		
+		if (str.isEmpty())
+			return false;
+		if (str.length() > 1 && str.charAt(i) == '-' || str.charAt(i) == '+')
+			i++;
+		for (; i < str.length(); i++)
+			if (Character.digit(str.charAt(i), base) == -1)
+				return false;
+		return true;
 	}
 }

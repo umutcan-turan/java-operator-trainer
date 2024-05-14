@@ -271,11 +271,9 @@ class Util {
 	
 	public static void printResult(boolean isCorrect)
 	{
-		if (isCorrect)
-			System.out.println("Doğru cevap! Bravo!");
-		else
-			System.out.println("Bir dahaki sefere..!");
+		System.out.printf("%s%n", isCorrect ? "Doğru cevap! Bravo!" : "Bir dahaki sefere..!");
 	}
+	
 	public static void printCorrectAnswerInfo()
 	{
 		System.out.print("Doğru cevap: ");

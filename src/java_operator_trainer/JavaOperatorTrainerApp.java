@@ -128,7 +128,7 @@ class JavaOperatorTrainerApp {
 		
 		arr.add(new Operator("Mantıksal veya",   "||",   12,  2,  false,  true,   false,  true));
 
-		//arr.add(new Operator("",               ":?",   13,  x,  x,      x,      x,      x));
+		arr.add(new Operator("Koşul",            "?:",   13,  3,  false,  true,   false,  false));
 		
 		arr.add(new Operator("Atama",             "=",   14,  2,  false,  true,   false,  false));
 		arr.add(new Operator("Çarparak atama",   "*=",   14,  2,  false,  true,   false,  false));

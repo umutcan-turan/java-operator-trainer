@@ -302,7 +302,7 @@ class StringUtil {
 		
 		if (str.isEmpty())
 			return false;
-		if (str.length() > 1 && str.charAt(i) == '-' || str.charAt(i) == '+')
+		if (str.length() > 1 && (str.charAt(i) == '-' || str.charAt(i) == '+'))
 			i++;
 		for (; i < str.length(); i++)
 			if (Character.digit(str.charAt(i), base) == -1)

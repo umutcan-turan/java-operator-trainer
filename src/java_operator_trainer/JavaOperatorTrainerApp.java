@@ -91,7 +91,7 @@ class JavaOperatorTrainerApp {
 		
 		//                     Name               Atom    Lvl Op  Prefix  Infix  Postfix LeftToRight	
 		//arr.add(new Operator("",                "()",   1,  x,  x,      x,      x,      x));
-		//arr.add(new Operator("",                ".",    1,  x,  x,      x,      x,      x));
+		arr.add(new Operator("Nokta",              ".",   1,  2,  false,  true,   false,  true));
 		//arr.add(new Operator("",                "[]",   1,  x,  x,      x,      x,      x));
 		arr.add(new Operator("New",              "new",   1,  1,  true,   false,  false,  true));
 		

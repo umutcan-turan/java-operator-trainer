@@ -93,7 +93,7 @@ class JavaOperatorTrainerApp {
 		//arr.add(new Operator("",                "()",   1,  x,  x,      x,      x,      x));
 		//arr.add(new Operator("",                ".",    1,  x,  x,      x,      x,      x));
 		//arr.add(new Operator("",                "[]",   1,  x,  x,      x,      x,      x));
-		//arr.add(new Operator("",               "new",   1,  x,  x,      x,      x,      x));
+		arr.add(new Operator("New",              "new",   1,  1,  true,   false,  false,  true));
 		
 		arr.add(new Operator("İşaret artı",        "+",   2,  1,  true,   false,  false,  false));
 		arr.add(new Operator("İşaret eksi",        "-",   2,  1,  true,   false,  false,  false));
